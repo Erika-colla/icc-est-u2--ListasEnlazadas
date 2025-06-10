@@ -10,6 +10,7 @@ public class LinkedList<T> {
     }
 
     public void appendToTail(T value){
+
         Node<T> newNode = new Node<>(value);
         if (head == null) {
             head = newNode;
@@ -24,6 +25,7 @@ public class LinkedList<T> {
     }
 
     public void findByValue(T value){
+
         Node<T> current = head;
         while (current != null) {
             if (current.getValue().equals(value)) {
@@ -36,6 +38,7 @@ public class LinkedList<T> {
     }
 
     public void deleteByValue(T value){
+        
         if (head == null) return; 
     
         if (head.getValue().equals(value)) {
