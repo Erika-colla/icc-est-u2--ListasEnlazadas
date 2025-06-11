@@ -1,19 +1,19 @@
 package models;
 
-public class Contact<T, U> {
-    private T name;
-    private U phone;
+public class Contact {
+    private String name;
+    private String phone;
 
-    public Contact(T name, U phone) {
+    public Contact(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
 
-    public T getName() {
+    public String getName() {
         return name;
     }
 
-    public U getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -46,6 +46,4 @@ public class Contact<T, U> {
             return false;
         return true;
     }
-
-    
 }
