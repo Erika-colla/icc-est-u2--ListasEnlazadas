@@ -1,6 +1,5 @@
 package controllers;
 import models.*;
-import views.*;
 
 public class ContactManager {
     private LinkedList<Contact> contacts;
