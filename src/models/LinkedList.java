@@ -10,52 +10,51 @@ public class LinkedList<T> {
     }
 
     public void appendToTail(T value){
-
         Node<T> newNode = new Node<>(value);
         if (head == null) {
             head = newNode;
         } else {
             Node<T> current = head;
             while (current.getNext() != null) {
-                current = current.getNext(); 
+                current = current.getNext();
             }
-            current.setNext(newNode); 
+            current.setNext(newNode);
         }
         size++;
     }
 
-    public void findByValue(T value){
-
+    public T findByValue(T value){
         Node<T> current = head;
         while (current != null) {
             if (current.getValue().equals(value)) {
-                System.out.println("Elemento encontrado: " + value);
-                return;
+                return current.getValue();
             }
             current = current.getNext();
         }
-        System.out.println("Elemento no encontrado: " + value);
+        return null;
     }
 
-    public void deleteByValue(T value){
-        
-        if (head == null) return; 
-    
-        if (head.getValue().equals(value)) {
-            head = head.getNext(); 
-            size--;
-            return;
+    public boolean deleteByValue(T value){
+        if (head == null) {
+            return false;
         }
-    
+
+        if (head.getValue().equals(value)) {
+            head = head.getNext();
+            size--;
+            return true;
+        }
+
         Node<T> current = head;
         while (current.getNext() != null) {
             if (current.getNext().getValue().equals(value)) {
-                current.setNext(current.getNext().getNext()); 
+                current.setNext(current.getNext().getNext());
                 size--;
-                return;
+                return true;
             }
             current = current.getNext();
         }
+        return false;
     }
 
     public int size() {
@@ -64,6 +63,10 @@ public class LinkedList<T> {
 
     public void printLinkedList() {
         Node<T> actual = head;
+        if (actual == null) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
         while (actual != null) {
             System.out.println(actual.getValue());
             actual = actual.getNext();
